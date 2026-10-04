@@ -155,12 +155,50 @@ footer{padding:30px 0 40px;border-top:1px solid var(--line);color:#adbed7;font-s
   .galleryCard img{height:330px}
 }
 
+
+/* Egy fájlos, de külön nézetes Galéria */
+.viewPage{display:none}
+.viewPage.active{display:block}
+body.galleryMode .nav .links a[href="#szolgaltatasok"],
+body.galleryMode .nav .links a[href="#kapcsolat"]{display:none}
+.galleryBackBar{
+  display:flex;gap:12px;flex-wrap:wrap;margin:0 0 26px
+}
+#galleryPage{
+  padding:64px 0 80px
+}
+#galleryPage .galleryIntro{
+  max-width:820px;margin-bottom:28px
+}
+#galleryPage .galleryGrid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:18px
+}
+#galleryPage .galleryCard{
+  overflow:hidden;border-radius:25px;
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+  border:1px solid var(--line);box-shadow:var(--shadow)
+}
+#galleryPage .imgBtn{
+  all:unset;display:block;width:100%;cursor:zoom-in;background:#06162d
+}
+#galleryPage .galleryCard img{
+  width:100%;height:430px;object-fit:cover;transition:.3s
+}
+#galleryPage .imgBtn:hover img{transform:scale(1.02)}
+#galleryPage .galleryText{padding:19px 20px 21px}
+#galleryPage .galleryText h3{color:var(--yellow);font-size:21px}
+#galleryPage .galleryText p{margin:0;color:#c5d4e9}
+@media(max-width:760px){
+  #galleryPage .galleryGrid{grid-template-columns:1fr}
+  #galleryPage .galleryCard img{height:330px}
+}
+
 </style>
 </head>
 <body>
 <nav class="nav">
   <div class="wrap navin">
-    <a class="brand" href="index.html"><span class="mark">RB13</span><span>RB13 CLEAN</span></a>
+    <a class="brand" href="#fooldal"><span class="mark">RB13</span><span>RB13 CLEAN</span></a>
     <div class="links">
       <a href="#szolgaltatasok">Szolgáltatások</a>
       <a href="#galeria">Galéria</a>
@@ -169,6 +207,7 @@ footer{padding:30px 0 40px;border-top:1px solid var(--line);color:#adbed7;font-s
     </div>
   </div>
 </nav>
+<div id="homePage" class="viewPage active">
 
 <header class="hero">
   <div class="wrap heroGrid">
@@ -294,14 +333,56 @@ footer{padding:30px 0 40px;border-top:1px solid var(--line);color:#adbed7;font-s
         <div class="previewText">Rendezett munkaterület <small>A következő munkafázishoz előkészítve.</small></div>
       </div>
     </div>
-    <div class="galleryCta"><a class="btn primary" href="#galeria">Teljes galéria megnyitása ↓</a></div>
+    <div class="galleryCta"><a class="btn primary" href="#galeria">Teljes galéria megnyitása →</a></div>
   </div>
 </section>
 
 
 
-<section id="galeria" class="fullGallery">
+
+
+<section id="kapcsolat">
   <div class="wrap">
+    <div class="contactBox">
+      <div>
+        <span class="kicker">Kapcsolat</span>
+        <h2>Beszéljük meg a munkát.</h2>
+        <p class="muted">Hívj vagy írj, és egyeztetjük a helyszínt és a feladatot.</p>
+        <div class="contactActions">
+          <a class="btn primary" href="tel:+36308487886">📞 06 30 848 7886</a>
+          <a class="btn ghost" href="mailto:rbalint13715@gmail.com">✉️ rbalint13715@gmail.com</a>
+        </div>
+      </div>
+      <div class="contactList">
+        <div class="info"><span>Márkanév</span><b>RB13 CLEAN</b></div>
+        <div class="info"><span>Vállalkozó</span><b>Rücker Bálint e.v.</b></div>
+        <div class="info"><span>Székhely</span><b>2767 Tápiógyörgye, Ady Endre utca 12.</b></div>
+      </div>
+    </div>
+    <div class="legal">
+      <div><span>Nyilvántartási szám</span><b>62648400</b></div>
+      <div><span>Adószám</span><b>92264021-1-33</b></div>
+      <div><span>Telefon</span><b>06 30 848 7886</b></div>
+      <div><span>E-mail</span><b>rbalint13715@gmail.com</b></div>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<section id="galleryPage" class="viewPage">
+  <div class="wrap">
+    <div class="galleryIntro">
+      <span class="eyebrow">SAJÁT MUNKÁK</span>
+      <h1>RB13 CLEAN <span class="accent">Galéria</span></h1>
+      <p class="lead">Ez egy külön galéria nézet. Itt később sok fotó is elfér úgy, hogy a főoldal nem lesz túlzsúfolt.</p>
+      <div class="galleryBackBar">
+        <a class="btn primary" href="#fooldal">← Vissza a főoldalra</a>
+        <a class="btn ghost" href="tel:+36308487886">📞 Ajánlatkérés</a>
+      </div>
+    </div>
+    <div class="wrap">
     <div class="sectionHead">
       <span class="kicker">Galéria</span>
       <h2>Teljes <span class="accent">munkagaléria</span></h2>
@@ -370,32 +451,6 @@ footer{padding:30px 0 40px;border-top:1px solid var(--line);color:#adbed7;font-s
     </article>
     </div>
   </div>
-</section>
-
-<section id="kapcsolat">
-  <div class="wrap">
-    <div class="contactBox">
-      <div>
-        <span class="kicker">Kapcsolat</span>
-        <h2>Beszéljük meg a munkát.</h2>
-        <p class="muted">Hívj vagy írj, és egyeztetjük a helyszínt és a feladatot.</p>
-        <div class="contactActions">
-          <a class="btn primary" href="tel:+36308487886">📞 06 30 848 7886</a>
-          <a class="btn ghost" href="mailto:rbalint13715@gmail.com">✉️ rbalint13715@gmail.com</a>
-        </div>
-      </div>
-      <div class="contactList">
-        <div class="info"><span>Márkanév</span><b>RB13 CLEAN</b></div>
-        <div class="info"><span>Vállalkozó</span><b>Rücker Bálint e.v.</b></div>
-        <div class="info"><span>Székhely</span><b>2767 Tápiógyörgye, Ady Endre utca 12.</b></div>
-      </div>
-    </div>
-    <div class="legal">
-      <div><span>Nyilvántartási szám</span><b>62648400</b></div>
-      <div><span>Adószám</span><b>92264021-1-33</b></div>
-      <div><span>Telefon</span><b>06 30 848 7886</b></div>
-      <div><span>E-mail</span><b>rbalint13715@gmail.com</b></div>
-    </div>
   </div>
 </section>
 
@@ -428,6 +483,28 @@ document.addEventListener("keydown",e=>{
     document.body.style.overflow="";
   }
 });
+</script>
+
+
+<script>
+function showRoute(){
+  const isGallery = location.hash === "#galeria";
+  const home = document.getElementById("homePage");
+  const gallery = document.getElementById("galleryPage");
+  if(isGallery){
+    home.classList.remove("active");
+    gallery.classList.add("active");
+    document.body.classList.add("galleryMode");
+    window.scrollTo(0,0);
+  }else{
+    home.classList.add("active");
+    gallery.classList.remove("active");
+    document.body.classList.remove("galleryMode");
+    if(location.hash==="#fooldal") window.scrollTo(0,0);
+  }
+}
+window.addEventListener("hashchange", showRoute);
+window.addEventListener("DOMContentLoaded", showRoute);
 </script>
 
 </body>
